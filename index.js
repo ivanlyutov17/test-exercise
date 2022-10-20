@@ -38,7 +38,9 @@ app.get('/questions/:questionId', async (req, res) => {
       req.params.questionId
     )
     if (!question) {
-      return res.status(StatusCodes.NOT_FOUND).json({ msg: Messages.NOT_FOUND })
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ msg: Messages.NO_QUESTION })
     }
     return res.status(StatusCodes.OK).json({ question: question })
   } catch (e) {
